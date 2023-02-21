@@ -4,6 +4,7 @@ void main() {
   runApp(MyApp());
 }
 
+// Define a list of strings representing the cities in Rwanda
 List<String> rwandaCities = [
   'Kigali',
   'Butare',
@@ -33,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Define a variable to keep track of the currently selected city
   String selectedCity = 'Kigali';
   @override
   Widget build(BuildContext context) {
@@ -42,17 +44,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
+          // DropdownButton is a pre-built widget that provides a dropdown menu
           DropdownButton<String>(
-            value: selectedCity,
+            value: selectedCity, // Set the initial value of the dropdown
             items: rwandaCities.map((String city) {
-              return DropdownMenuItem<String>(
+              return DropdownMenuItem<String>( // For each city in the list, create a dropdown menu item
                 value: city,
                 child: Text(city),
               );
             }).toList(),
-            onChanged: (String? newValue) {
+            onChanged: (String? newValue) { // When the user selects a new value from the dropdown, update the state
               setState(() {
-                selectedCity = newValue!;
+                selectedCity = newValue!; // Set the selected city to the new value
               });
             },
           ),
